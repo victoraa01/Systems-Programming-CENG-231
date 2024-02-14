@@ -1,0 +1,65 @@
+/* Assignment 4 Monte Carlo Calculation */
+/* Author: Victor Aguilar         */
+/* Systems Programming Spring 2023*/
+
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+
+int main()
+{
+
+        double pi = 0;
+        double radius;
+        int numPoints = 0;
+        int pointsIn;
+        int pointsOut = 0;
+        int a = 0;
+        double d_squaredRight;
+        double d_squaredLeft;
+        double x;
+        double y;
+
+        srand(0);
+
+        printf("Enter the radius of the circle: ");
+        scanf("%lf", &radius);
+        printf("Enter the number of points: ");
+        scanf("%d", &numPoints);
+
+
+
+        for(a = 0; a < numPoints; a = a + 1)
+        {
+                x = ((double)rand()) / ((double)RAND_MAX)*(2*radius);
+                y = ((double)rand()) / ((double)RAND_MAX)*(2*radius);
+
+                d_squaredLeft = ((x-0)*(x-0))+((y-radius)*(y-radius));
+                d_squaredRight = ((x-(2*radius))*(x-(2*radius)))+((y-radius)*(y-radius));
+                        if(d_squaredLeft > (radius*radius)&&d_squaredRight > (radius*radius))
+                        {
+                                pointsOut++;
+                                printf("Point No.%d(x=%.6lf,y=%.6lf):    Out \n",a+1, x, y);
+                        }
+                        else
+                        {
+                                pointsIn++;
+                                printf("Point No.%d(x=%.6lf,y=%.6lf):    In \n",a+1, x, y);
+                        }
+        }
+
+
+
+	pi = (4 * ((float)pointsIn/(float)numPoints));
+
+        printf("/******In Summary******/\n");
+        printf("Points within circle areas:   %d\n", pointsIn);
+        printf("Points out of circle areas:   %d\n", pointsOut);
+        printf("Pi = %lf\n", pi);
+
+return 0;
+
+}
+
