@@ -1,0 +1,56 @@
+/* CENG 231 HW5 Rational Calculator */
+/* Author: Victor Aguilar           */
+/* Systems Programming Spring 2023  */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+        int currNum;
+        int currDen;
+        int newNum;
+        int newDen;
+        int menuInput;
+        int a,b,c,d,t;
+
+void printMenu()                                /* Menu function (called several times) */
+{
+        printf("1. Subtract a rational number from the current result;\n");
+        printf("2. Add a rational number to the current result;\n");
+        printf("3. Quit\n");
+        printf("\nPlease enter a selection:\n");
+        scanf("%d", &menuInput);
+
+        if(menuInput == 3)                      /* If statement for handling menu inputs */
+        {
+                exit(0);
+        }
+	if(menuInput == 1)
+        {
+                subRational(int currNum, int currDen);  /* Call the subtraction function */
+                reducedFormat();                        /* Call the reducer function */
+                printRational();                        /* call the print function */
+                printMenu();                            /* call the menu function so user can decide what to do now */
+        }
+	if(menuInput == 2)
+        {
+                addRational();
+                reducedFormat();
+                printRational();
+                printMenu();
+        }
+	else{
+             	printf("ERROR: Invalid option number!\n");	/* Error handling: option 1-3 not selected */
+                printMenu();
+        }
+}
+
+void inputRational()                                            /* Call this function for inputing a new rational */
+{
+        printf("Please input a rational number.\n");
+        printf("Numerator: ");
+        scanf("%d", &currNum);
+        printf("Denominator: ");
+        scanf("%d", &currDen);
+}
+
