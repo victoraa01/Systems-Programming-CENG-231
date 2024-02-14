@@ -1,0 +1,48 @@
+/*Distance Adder Assignment 2  */
+/*Distance tracker code        */
+/*Victor Aguilar               */
+/*Systems Programming Fall 2022*/
+
+#include <stdio.h>
+
+int main(void)
+{
+        int m1 = 0, y1 = 0, f1 = 0, i1 = 0;
+        int m2 = 0, y2 = 0, f2 = 0, i2 = 0;
+        int i = 0, f = 0, y = 0, m = 0;
+        int sum_m = 0, sum_y = 0, sum_f = 0;
+        int rem_m = 0, rem_y = 0, rem_f = 0;
+
+
+        printf("Please enter two distance values m1, y1, f1, i1, m2, y2, f2, and i2.\n");
+        printf("i1: ");
+        scanf("%d", &i1);
+        printf("f1: ");
+        scanf("%d", &f1);
+        printf("y1: ");
+        scanf("%d", &y1);
+        printf("m1: ");
+        scanf("%d", &m1);
+
+        printf("Distance 1 is %d miles, %d yards, %d feet, %d inches.\n", m1,y1,f1,i1);
+
+        printf("i2: ");
+        scanf("%d", &i2);
+        printf("f2: ");
+        scanf("%d", &f2);
+        printf("y2: ");
+        scanf("%d", &y2);
+        printf("m2: ");
+        scanf("%d", &m2);
+
+        printf("Distance 2 is %d miles, %d yards, %d feet, %d inches.\n", m2,y2,f2,i2);
+
+
+
+        i = (i1+i2);
+
+        f = (f1+f2);
+
+        y = (y1+y2);
+
+        m = (m1+m2);
