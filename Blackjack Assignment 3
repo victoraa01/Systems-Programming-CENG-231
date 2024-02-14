@@ -1,0 +1,56 @@
+/* Blackjack Code: Assignment 3  */
+/* Author: Victor Aguilar        */
+/* Systems Programming Fall 2022 */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+
+
+
+int main(void)
+{
+
+        int i = 0;
+        int input;
+        int handValue;
+        int dealerHand = 0;
+        int unsigned card;
+
+        srand(time(NULL));
+        card = rand() % 13 + 1;
+
+
+        printf("\n************************************\n");
+        printf("** Welcome to CENG 231 BlackJack! **\n");
+        printf("************************************\n");
+
+        printf("Your first card is: %u\n", card);
+        handValue = card;
+
+        start:
+
+        printf("Do you want another card?\nType 1 for Yes, 0 for No:\n");
+        scanf("%d", &input);
+
+
+        while(i==0)
+        {
+
+                if(input == 1)
+                {
+                        card = rand() % 13 + 1;
+                        handValue = handValue + card;
+                        printf("Your next card is: %u\n", card);
+                        printf("Your combined value is: %u\n", handValue);
+                        if(handValue>21)
+                        {
+                                printf("Sorry. You lose!\n");
+                                i++;
+                                exit(0);
+                        }
+                        goto start;
+                }
