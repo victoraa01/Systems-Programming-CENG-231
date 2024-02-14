@@ -1,0 +1,33 @@
+/* Victor Aguilar Initials Assignment */
+/* Systems Programming Fall 2022      */
+
+#include <stdio.h>
+
+int main(void)
+{
+        printf("                vv\n");
+        printf("             vv\n");
+        printf("          vv\n");
+        printf("       vv\n");
+        printf("    vv\n");
+        printf(" vv\n");
+        printf("    vv\n");
+        printf("       vv\n");
+        printf("          vv\n");
+        printf("             vv\n");
+        printf("                vv\n");
+        printf("                        \n");
+        printf("                        \n");
+        printf("aa\n");
+        printf("   aa\n");
+        printf("      aa\n");
+        printf("         aa\n");
+        printf("         a  aa\n");
+        printf("         a     aa\n");
+        printf("         a  aa\n");
+        printf("         aa\n");
+        printf("      aa\n");
+        printf("   aa\n");
+        printf("aa\n");
+        return 0;
+}
