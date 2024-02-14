@@ -1,0 +1,60 @@
+/* Assignment #3 credit card payment */
+/* Victor Aguilar                */
+/* Systems Programming Fall 2022 */
+
+#include <stdio.h>
+
+int main()
+{
+        int cred_lim = 0;
+        int month = 1;
+        float apr;
+        float newBalance;
+        float interest;
+        float balance = 0;
+        float payment = 0;
+
+        float yearly_interest;
+        float monthly_interest;
+        float balanceBeforePayment;
+
+        float total;
+
+        printf("Enter the credit limit        : ");
+        scanf("%d", &cred_lim);
+        printf("Enter the balance on the card : ");
+        scanf("%f", &balance);
+        printf("Enter the APR                 : ");
+        scanf("%f", &apr);
+        printf("Enter the monthly payment     : ");
+        scanf("%f", &payment);
+
+
+        total = balance;
+
+        /* Computation APR */
+
+        yearly_interest = apr/100.0;
+        monthly_interest = yearly_interest/12;
+
+
+        /* table column headings */
+        printf("\n%5s  %7s  %8s  %7s  %11s\n", "Month", "Balance", "Interest", "Payment", "New Balance");
+
+
+        do {
+            	/* Computation of new balance */
+                interest = balance * monthly_interest;
+
+                balanceBeforePayment = balance + interest;
+
+                if(balanceBeforePayment < payment)              /* if statement checks whether to just pay balance if less than standard payment or pay regular payment */
+                {
+                        payment = balance+interest;
+                }
+
+                total += interest;
+
+                newBalance = balanceBeforePayment - payment;
+
+                printf("%5d  %7.2f  %8.2f  %7.2f  %11.2f\n", month, balance, interest, payment, newBalance);
