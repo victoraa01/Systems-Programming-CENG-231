@@ -1,0 +1,91 @@
+/* Assignment 4 Roulette game      */
+/* Author: Victor Aguilar          */
+/* Systems Programming Spring 2023 */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+int main()
+{
+
+        int balance = 0;
+        int currentBet = 0;
+        int userInput = 0;
+        int unsigned rouletteValue;
+
+        srand(time(0));
+
+        printf("Entering the casino, how much money do you have? $");
+        scanf("%d", &balance);
+
+        printf("We are playing roulette, odd or even bets only.\n");
+
+
+        while(balance > 0)
+        {
+                printf("Place your bet!\n");
+
+                printf("Enter 1 for odd, 2 for even, 0 to quit: ");
+                scanf("%d", &userInput);
+
+                if(userInput == 1)
+                {
+                        printf("How much money you want to bet? $");
+                        scanf("%d", &currentBet);
+                        printf("You bet $%d on odd numbers.", currentBet);
+                        rouletteValue = rand() % 36 + 1;
+                        printf("The winning number is %u!\n", rouletteValue);
+
+                        if(rouletteValue%2 == 1)
+                        {
+                                printf("You Win!\n");
+                                balance = balance + currentBet;
+                                printf("Your balance is $%d!!\n", balance);
+                        }
+                        else
+                        {
+                                printf("You Lose!\n");
+                                balance =  balance - currentBet;
+                                printf("Your balance is $%d!!\n", balance);
+                        }
+
+                }
+
+
+                if(userInput == 2)
+                {
+                        printf("How much money you want to bet? $");
+                        scanf("%d", &currentBet);
+                        printf("You bet $%d on even numbers.", currentBet);
+                        rouletteValue = rand() % 36 + 1;
+                        printf("The winning number is %u!\n", rouletteValue);
+
+                        if(rouletteValue%2 == 0)
+                        {
+                                printf("You Win!\n");
+                                balance = balance + currentBet;
+                                printf("Your balance is $%d!!\n", balance);
+                        }
+                        else
+                        {
+                                printf("You Lose!\n");
+                                balance =  balance - currentBet;
+                                printf("Your balance is $%d!!\n", balance);
+                        }
+
+                }
+
+                if(userInput == 0)
+                {
+                        break;
+                }
+
+
+        }
+
+	return 0;
+}
+
